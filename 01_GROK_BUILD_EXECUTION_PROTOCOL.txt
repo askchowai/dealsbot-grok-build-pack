@@ -1,0 +1,59 @@
+GROK BUILD PHASE EXECUTION PROTOCOL
+===================================
+
+For EVERY phase:
+
+STEP 1 — INSPECT
+Run:
+- grok inspect
+- git status
+- inspect current phase .txt
+- inspect relevant prior report(s)
+- inspect existing code before proposing new abstractions
+
+STEP 2 — PLAN
+Enter Plan mode.
+
+Prompt:
+"Read the authorized phase file completely. Inspect the repository. Produce a bounded implementation plan that maps each phase requirement to exact files/tests. Identify existing abstractions to reuse, migrations, security implications, and the final verification gate. Do not edit yet."
+
+Review the plan.
+Correct scope before execution.
+
+STEP 3 — PARALLEL RESEARCH
+For complex phases, spawn read-only/exploration subagents:
+- architecture explorer
+- test/oracle designer
+- security reviewer
+- migration reviewer
+- Linux/runtime reviewer
+
+Subagents should return findings to the parent session.
+Do not let them all edit shared files.
+
+STEP 4 — EXECUTE
+After plan approval, use a bounded /goal:
+
+"/goal Execute ONLY the approved current phase. Follow AGENTS.md and the phase file exactly. Reuse existing abstractions. Run targeted tests continuously. Fix genuine defects at the root. Create the required report. Run the full gate. Commit only when green. STOP before the next phase."
+
+STEP 5 — REVIEW
+Before accepting Grok's completion claim:
+- inspect git diff / commit diff;
+- run targeted tests manually/headlessly;
+- check report numbers against executable tests;
+- for high-risk phases run an independent adversarial subagent;
+- if the phase contains money/optimization, independently derive key expected results.
+
+STEP 6 — HEADLESS REPRO
+Use Grok Build headless mode for repeatable verification/CI-style checks where useful.
+
+Example:
+grok -p "Review the current diff against AGENTS.md and the authorized phase file. Report only violations, missing tests, and unsafe assumptions." --output-format streaming-json
+
+Use narrow permissions for headless operation. Do not use always-approve.
+
+STEP 7 — STOP
+After green commit:
+- record commit hash;
+- confirm clean tree;
+- STOP.

@@ -1,0 +1,36 @@
+# Copy/adapt as .grok/config.toml in the repository.
+# Project config is for repo-shared MCP, plugins and permission rules.
+# Keep user model/UI preferences in ~/.grok/config.toml.
+
+# Example only. Verify exact syntax against the installed Grok Build version with:
+#   grok inspect
+#   /settings
+#
+# Keep permissions narrow. Do not use catch-all allow rules.
+
+# [mcp_servers.playwright]
+# command = "npx"
+# args = ["@playwright/mcp@latest"]
+# enabled = true
+# startup_timeout_sec = 30
+# tool_timeout_sec = 600
+
+# Prefer sandbox workspace/strict profiles and explicit allow/deny rules.
+# Deny destructive commands and credential dumping.
+#
+# Example policy intent:
+# allow:
+#   git status/diff/log
+#   pnpm/npm/node
+#   tests/build/lint/typecheck
+#   non-destructive file reads/searches
+#
+# deny:
+#   rm -rf /
+#   destructive disk/device commands
+#   credential/keychain dumps
+#   arbitrary network tunnels
+#   commands that bypass source access controls
+
+# After configuring, always run:
+#   grok inspect

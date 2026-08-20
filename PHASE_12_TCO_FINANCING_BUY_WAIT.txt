@@ -1,0 +1,67 @@
+GROK BUILD PHASE INSTRUCTIONS
+
+Use the repository AGENTS.md as durable rules.
+Run `grok inspect` before work.
+Use Plan mode before major edits.
+Use /goal only after the plan is approved.
+Use subagents for independent exploration/oracle/review.
+Do not use always-approve/yolo.
+Execute ONLY this phase.
+IMPLEMENT -> TEST -> VERIFY -> DOCUMENT -> COMMIT -> STOP.
+Do not start the next phase.
+
+PHASE
+12 — TCO / Financing / Buy-Wait
+
+MISSION
+Determine whether buying an individual offer now makes economic sense.
+
+GROK-SPECIFIC EXECUTION
+1. Inspect the repo and previous accepted report.
+2. In Plan mode, map every requirement below to exact files/tests.
+3. Spawn read-only subagents when useful for:
+   - architecture exploration
+   - independent test/oracle design
+   - security/reliability review
+4. Approve the plan.
+5. Execute the bounded phase using /goal.
+6. Run targeted tests during implementation.
+7. Before commit, run the full prior regression gate.
+8. Inspect the final diff and report.
+9. Commit and STOP.
+
+REQUIREMENTS
+TCO consumes Phase06 counted breakdown.
+Separate guaranteed/expected/optional-loaded/net-ownership views.
+UNKNOWN mandatory amount blocks completeness.
+Deterministic integer amortization.
+interestFree != costFree.
+liquidity != economic cost.
+Opportunity rate optional USER ASSUMPTION.
+Resale needs horizon/evidence.
+Buy/Wait confidence separate.
+Safety cannot be overridden by wait cost.
+Snapshots immutable/versioned.
+
+ADVERSARIAL / ACCEPTANCE FOCUS
+Before implementation, spawn an independent financial-oracle subagent. Require hand-derived examples and safe-integer checks.
+
+REPORT
+Create:
+docs/phase-reports/PHASE_12_REPORT.md
+
+COMPLETION RESPONSE
+Return:
+- concise result
+- architecture/behavior added
+- important safety guarantees
+- tests and E2E
+- migrations
+- model/policy versions
+- files changed
+- commit hash(es)
+- git status
+- limitations
+- whether the next phase is safe
+
+STOP after reporting.

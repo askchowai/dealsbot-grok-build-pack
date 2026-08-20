@@ -1,0 +1,66 @@
+GROK BUILD PHASE INSTRUCTIONS
+
+Use the repository AGENTS.md as durable rules.
+Run `grok inspect` before work.
+Use Plan mode before major edits.
+Use /goal only after the plan is approved.
+Use subagents for independent exploration/oracle/review.
+Do not use always-approve/yolo.
+Execute ONLY this phase.
+IMPLEMENT -> TEST -> VERIFY -> DOCUMENT -> COMMIT -> STOP.
+Do not start the next phase.
+
+PHASE
+06A — Protected Deal Tiers
+
+MISSION
+Freeze Deal Score tier meaning and non-lowerable alert floors.
+
+GROK-SPECIFIC EXECUTION
+1. Inspect the repo and previous accepted report.
+2. In Plan mode, map every requirement below to exact files/tests.
+3. Spawn read-only subagents when useful for:
+   - architecture exploration
+   - independent test/oracle design
+   - security/reliability review
+4. Approve the plan.
+5. Execute the bounded phase using /goal.
+6. Run targeted tests during implementation.
+7. Before commit, run the full prior regression gate.
+8. Inspect the final diff and report.
+9. Commit and STOP.
+
+REQUIREMENTS
+0-59 ignore
+60-69 weak
+70-79 interesting
+80-89 good_deal
+90-94 great_deal
+95-100 buy_now_candidate
+Normal floor >=80.
+buy_now_candidate is economics only.
+Confidence separate.
+Watch may raise but not lower protected floor.
+
+ADVERSARIAL / ACCEPTANCE FOCUS
+Boundary tests at every tier edge and explicit no-transaction-authorization invariant.
+
+REPORT
+Create:
+docs/phase-reports/PHASE_06A_REPORT.md
+
+COMPLETION RESPONSE
+Return:
+- concise result
+- architecture/behavior added
+- important safety guarantees
+- tests and E2E
+- migrations
+- model/policy versions
+- files changed
+- commit hash(es)
+- git status
+- limitations
+- whether the next phase is safe
+
+STOP after reporting.

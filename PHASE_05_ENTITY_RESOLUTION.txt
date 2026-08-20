@@ -1,0 +1,62 @@
+GROK BUILD PHASE INSTRUCTIONS
+
+Use the repository AGENTS.md as durable rules.
+Run `grok inspect` before work.
+Use Plan mode before major edits.
+Use /goal only after the plan is approved.
+Use subagents for independent exploration/oracle/review.
+Do not use always-approve/yolo.
+Execute ONLY this phase.
+IMPLEMENT -> TEST -> VERIFY -> DOCUMENT -> COMMIT -> STOP.
+Do not start the next phase.
+
+PHASE
+05 — Exact Entity Resolution
+
+MISSION
+Resolve noisy listings to exact products/configurations with controlled abstention.
+
+GROK-SPECIFIC EXECUTION
+1. Inspect the repo and previous accepted report.
+2. In Plan mode, map every requirement below to exact files/tests.
+3. Spawn read-only subagents when useful for:
+   - architecture exploration
+   - independent test/oracle design
+   - security/reliability review
+4. Approve the plan.
+5. Execute the bounded phase using /goal.
+6. Run targeted tests during implementation.
+7. Before commit, run the full prior regression gate.
+8. Inspect the final diff and report.
+9. Commit and STOP.
+
+REQUIREMENTS
+Statuses exact/conflict/multiple_options/unknown/not_the_product.
+Desktop 5090 != 5090 Laptop.
+Apple variants distinct by chip/core/memory/storage.
+Bundles/configurator options cannot become false exact identity.
+Structured evidence outranks title intuition.
+Never invent specs.
+
+ADVERSARIAL / ACCEPTANCE FOCUS
+Use parallel subagent to create deceptive SEO/title corpus. Report precision, recall and abstention; prioritize precision for alert eligibility.
+
+REPORT
+Create:
+docs/phase-reports/PHASE_05_REPORT.md
+
+COMPLETION RESPONSE
+Return:
+- concise result
+- architecture/behavior added
+- important safety guarantees
+- tests and E2E
+- migrations
+- model/policy versions
+- files changed
+- commit hash(es)
+- git status
+- limitations
+- whether the next phase is safe
+
+STOP after reporting.

@@ -1,0 +1,73 @@
+GROK BUILD PHASE INSTRUCTIONS
+
+Use the repository AGENTS.md as durable rules.
+Run `grok inspect` before work.
+Use Plan mode before major edits.
+Use /goal only after the plan is approved.
+Use subagents for independent exploration/oracle/review.
+Do not use always-approve/yolo.
+Execute ONLY this phase.
+IMPLEMENT -> TEST -> VERIFY -> DOCUMENT -> COMMIT -> STOP.
+Do not start the next phase.
+
+PHASE
+16 — Production Certification
+
+MISSION
+Produce a Linux release candidate and prove the full user story.
+
+GROK-SPECIFIC EXECUTION
+1. Inspect the repo and previous accepted report.
+2. In Plan mode, map every requirement below to exact files/tests.
+3. Spawn read-only subagents when useful for:
+   - architecture exploration
+   - independent test/oracle design
+   - security/reliability review
+4. Approve the plan.
+5. Execute the bounded phase using /goal.
+6. Run targeted tests during implementation.
+7. Before commit, run the full prior regression gate.
+8. Inspect the final diff and report.
+9. Commit and STOP.
+
+REQUIREMENTS
+Primary-target full stories watch->live discovery->identity->pricing->verification->risk/proof->decision->alert->autopsy.
+Restart/reboot durability.
+systemd worker recovery.
+desktop autostart.
+backup/restore.
+migrations.
+offline/degraded behavior.
+source outages.
+DND/quiet hours.
+notification retry.
+dedupe after restart.
+AppImage/.deb/RPM if maintained.
+Wayland/X11.
+CPU/memory/DB growth soak.
+privacy/log/secret/permission audits.
+rollback docs.
+no autonomous transactions.
+
+ADVERSARIAL / ACCEPTANCE FOCUS
+Use separate release-review subagents for security, Linux packaging, source certification and end-to-end correctness. Run full suite twice and compare results.
+
+REPORT
+Create:
+docs/phase-reports/PHASE_16_RELEASE_CERTIFICATION.md
+
+COMPLETION RESPONSE
+Return:
+- concise result
+- architecture/behavior added
+- important safety guarantees
+- tests and E2E
+- migrations
+- model/policy versions
+- files changed
+- commit hash(es)
+- git status
+- limitations
+- whether the next phase is safe
+
+STOP after reporting.

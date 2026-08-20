@@ -1,0 +1,70 @@
+GROK BUILD PHASE INSTRUCTIONS
+
+Use the repository AGENTS.md as durable rules.
+Run `grok inspect` before work.
+Use Plan mode before major edits.
+Use /goal only after the plan is approved.
+Use subagents for independent exploration/oracle/review.
+Do not use always-approve/yolo.
+Execute ONLY this phase.
+IMPLEMENT -> TEST -> VERIFY -> DOCUMENT -> COMMIT -> STOP.
+Do not start the next phase.
+
+PHASE
+00 — Linux Foundation
+
+MISSION
+Establish the Linux-native monorepo, desktop, worker and security baseline before deal logic.
+
+GROK-SPECIFIC EXECUTION
+1. Inspect the repo and previous accepted report.
+2. In Plan mode, map every requirement below to exact files/tests.
+3. Spawn read-only subagents when useful for:
+   - architecture exploration
+   - independent test/oracle design
+   - security/reliability review
+4. Approve the plan.
+5. Execute the bounded phase using /goal.
+6. Run targeted tests during implementation.
+7. Before commit, run the full prior regression gate.
+8. Inspect the final diff and report.
+9. Commit and STOP.
+
+REQUIREMENTS
+- pnpm + Turborepo
+- strict TypeScript
+- Electron + React + Vite desktop
+- Node worker + reference service shell
+- packages for domain/application/persistence/connectors/observability/test-support
+- XDG config/data/state/cache path provider
+- graceful SIGINT/SIGTERM
+- Wayland/X11 detection
+- desktop-notification capability detection
+- Linux secret-store backend detection
+- Electron contextIsolation=true, nodeIntegration=false
+- sandbox enabled
+- CI/headless test support
+- no live deal sources
+
+ADVERSARIAL / ACCEPTANCE FOCUS
+Prove XDG overrides, non-root runtime, renderer has no Node globals, graceful shutdown, clean checkout, desktop launch and headless worker.
+
+REPORT
+Create:
+docs/phase-reports/PHASE_00_REPORT.md
+
+COMPLETION RESPONSE
+Return:
+- concise result
+- architecture/behavior added
+- important safety guarantees
+- tests and E2E
+- migrations
+- model/policy versions
+- files changed
+- commit hash(es)
+- git status
+- limitations
+- whether the next phase is safe
+
+STOP after reporting.

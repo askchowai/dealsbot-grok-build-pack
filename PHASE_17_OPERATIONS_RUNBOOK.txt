@@ -1,0 +1,57 @@
+GROK BUILD PHASE INSTRUCTIONS
+
+Use the repository AGENTS.md as durable rules.
+Run `grok inspect` before work.
+Use Plan mode before major edits.
+Use /goal only after the plan is approved.
+Use subagents for independent exploration/oracle/review.
+Do not use always-approve/yolo.
+Execute ONLY this phase.
+IMPLEMENT -> TEST -> VERIFY -> DOCUMENT -> COMMIT -> STOP.
+Do not start the next phase.
+
+PHASE
+17 — Linux Operations Runbook
+
+MISSION
+Create the safe operating manual and idempotent maintenance scripts.
+
+GROK-SPECIFIC EXECUTION
+1. Inspect the repo and previous accepted report.
+2. In Plan mode, map every requirement below to exact files/tests.
+3. Spawn read-only subagents when useful for:
+   - architecture exploration
+   - independent test/oracle design
+   - security/reliability review
+4. Approve the plan.
+5. Execute the bounded phase using /goal.
+6. Run targeted tests during implementation.
+7. Before commit, run the full prior regression gate.
+8. Inspect the final diff and report.
+9. Commit and STOP.
+
+REQUIREMENTS
+Document install/update/uninstall, XDG dirs, DB, backup/restore, systemd --user, autostart, logs, secrets, connector enable/disable, kill switches, health/circuit/rate limits, fixture replay, migrations, rollback, diagnosing no alerts/duplicates/stale verification, DND/quiet hours, headless mode, Wayland/X11, sandbox troubleshooting without default --no-sandbox, reset, export/delete data, incidents and release checklist.
+
+ADVERSARIAL / ACCEPTANCE FOCUS
+Have an operations subagent execute the runbook commands on a clean Linux environment and report any command that is not idempotent or truthful.
+
+REPORT
+Create:
+docs/phase-reports/PHASE_17_OPERATIONS_REPORT.md
+
+COMPLETION RESPONSE
+Return:
+- concise result
+- architecture/behavior added
+- important safety guarantees
+- tests and E2E
+- migrations
+- model/policy versions
+- files changed
+- commit hash(es)
+- git status
+- limitations
+- whether the next phase is safe
+
+STOP after reporting.

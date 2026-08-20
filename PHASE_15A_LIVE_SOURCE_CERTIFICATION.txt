@@ -1,0 +1,63 @@
+GROK BUILD PHASE INSTRUCTIONS
+
+Use the repository AGENTS.md as durable rules.
+Run `grok inspect` before work.
+Use Plan mode before major edits.
+Use /goal only after the plan is approved.
+Use subagents for independent exploration/oracle/review.
+Do not use always-approve/yolo.
+Execute ONLY this phase.
+IMPLEMENT -> TEST -> VERIFY -> DOCUMENT -> COMMIT -> STOP.
+Do not start the next phase.
+
+PHASE
+15A — Live Source Certification
+
+MISSION
+Try to make every live connector generate false positives before broad enablement.
+
+GROK-SPECIFIC EXECUTION
+1. Inspect the repo and previous accepted report.
+2. In Plan mode, map every requirement below to exact files/tests.
+3. Spawn read-only subagents when useful for:
+   - architecture exploration
+   - independent test/oracle design
+   - security/reliability review
+4. Approve the plan.
+5. Execute the bounded phase using /goal.
+6. Run targeted tests during implementation.
+7. Before commit, run the full prior regression gate.
+8. Inspect the final diff and report.
+9. Commit and STOP.
+
+REQUIREMENTS
+Audit query precision/recall, exact config, pagination, duplicates/syndication, stale/OOS, price/currency/shipping/fees, seller/condition, sold-vs-ask, freshness, access-control, retries, timestamps, fingerprints and marketplace proof.
+Cross-source stale cannot override fresh.
+Asks cannot become sold.
+Syndication cannot inflate comps.
+Outage isolated.
+Capability cannot leak between sources.
+Manually inspect sample evidence.
+
+ADVERSARIAL / ACCEPTANCE FOCUS
+Run adversarial subagent PER source plus cross-source reviewer. Repeat clean runs to expose timing/rate flakes.
+
+REPORT
+Create:
+docs/phase-reports/PHASE_15A_LIVE_SOURCE_CERTIFICATION.md
+
+COMPLETION RESPONSE
+Return:
+- concise result
+- architecture/behavior added
+- important safety guarantees
+- tests and E2E
+- migrations
+- model/policy versions
+- files changed
+- commit hash(es)
+- git status
+- limitations
+- whether the next phase is safe
+
+STOP after reporting.
